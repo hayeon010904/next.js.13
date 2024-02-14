@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,7 @@ export default function RootLayout({
           <Link href={"/"}>Home</Link>&nbsp;&nbsp;
           <Link href={"/posts"}>Post</Link>
         </nav>
-        <main> {children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import CreatePost from "./CreatePost";
-
+import styled from "styled-components";
 async function getPosts() {
   const res = await fetch(
     "http://127.0.0.1:8090/api/collections/posts/records",
@@ -16,7 +16,7 @@ async function getPosts() {
 
 const PostsPage = async () => {
   const posts = await getPosts();
-  console.log(posts);
+  //   console.log(posts);
   return (
     <div>
       <h1>Posts</h1>
@@ -35,9 +35,11 @@ const PostItem = ({ post }: any) => {
   return (
     <Link href={`/posts/${id}`}>
       <div>
-        <h3>{title}</h3>
-        <p>{created}</p>
+        <br />
+        <span className="title">{title}</span>&nbsp;&nbsp;
+        <span>{created}</span>
       </div>
+      <br />
     </Link>
   );
 };

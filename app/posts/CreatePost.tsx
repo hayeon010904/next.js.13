@@ -1,5 +1,5 @@
 "use client";
-
+import styled from "styled-components";
 import { useRouter } from "next//navigation";
 import { useState } from "react";
 
@@ -12,23 +12,36 @@ const CreatePost = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title
+        title,
       }),
     });
     setTitle("");
     router.refresh();
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Form onSubmit={handleSubmit}>
+      <Input
         type="text"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <button type="submit">Create Post</button>
-    </form>
+      <Button type="submit">Create Post</Button>
+    </Form>
   );
 };
 
 export default CreatePost;
+const Form = styled.form`
+  width: 100%;
+  height: 2rem;
+`;
+const Input = styled.input`
+  width: 70%;
+  height: 100%;
+  text-align: center;
+`;
+const Button = styled.button`
+  width: 30%;
+  height: 100%;
+`;
